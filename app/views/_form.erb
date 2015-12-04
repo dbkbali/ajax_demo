@@ -1,23 +1,25 @@
-<% flash.each do |key, value| %>
-  <div class="pure-alert pure-alert-<%= key %>">
-    <%= value %>
-  </div>
-<% end %>
+<div id="messages">
+  <% flash.each do |key, value| %>
+    <div class="pure-alert pure-alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+</div>
  <form class="pure-form-aligned pure-form" action="/create" method="post" >
      <fieldset>
         <h2>Add A Note</h2>
         <legend></legend>
         <div class="pure-control-group">
-          <label for="note_title">Title</label>
-          <input type="text" class="pure-input-1-2" placeholder="note title" name='note[title]'>
+          <label for="title">Title</label>
+          <input type="text" class="pure-input-1-2" placeholder="note title" name='note[title]' id="title">
         </div>
         <div class="pure-control-group">
           <label for="ref_url">Reference Link</label>
-          <input type="url" class="pure-input-1-2" placeholder="reference url if any!" name='note[reference_url]'>
+          <input type="url" class="pure-input-1-2" placeholder="reference url if any!" name="note[reference_url]" id="ref_url">
         </div>
         <div class="pure-control-group">
           <label for="ref_url">Notes</label>
-          <textarea class="pure-input-1-2" placeholder="add your note text here" name='note[description]'></textarea>
+          <textarea class="pure-input-1-2" placeholder="add your note text here" name="note[description]" id="description"></textarea>
         </div>
      </fieldset>
     <button type="submit" class="pure-button pure-button-primary">Submit</button>
