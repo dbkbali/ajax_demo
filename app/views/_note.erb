@@ -1,0 +1,19 @@
+<section>
+  <header class="post-header">
+      <h2 class="post-title"><%= note.title %></h2>
+      <p class="post-meta">
+          <span class="post-category post-category-design">Created: <%= note.created_at.to_date %></span>
+      </p>
+  </header>
+
+  <div class="post-description">
+      <p>
+        <%= note.description %>
+      </p>
+      <ul class='reference-url'>
+        <a href="<%= note.reference_url %>"><%= note.reference_url %></a>
+      </ul>
+
+  </div>
+
+</section>
