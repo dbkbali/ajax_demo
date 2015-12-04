@@ -1,0 +1,6 @@
+<div class="posts">
+  <%= partial(:form) %>
+  <% @notes.each do |note| %>
+    <%= partial(:note, locals: {note: note}) %>
+  <% end %>
+</div>

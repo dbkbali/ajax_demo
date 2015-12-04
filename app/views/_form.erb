@@ -1,0 +1,25 @@
+<% flash.each do |key, value| %>
+  <div class="pure-alert pure-alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+ <form class="pure-form-aligned pure-form" action="/create" method="post" >
+     <fieldset>
+        <h2>Add A Note</h2>
+        <legend></legend>
+        <div class="pure-control-group">
+          <label for="note_title">Title</label>
+          <input type="text" class="pure-input-1-2" placeholder="note title" name='note[title]'>
+        </div>
+        <div class="pure-control-group">
+          <label for="ref_url">Reference Link</label>
+          <input type="url" class="pure-input-1-2" placeholder="reference url if any!" name='note[reference_url]'>
+        </div>
+        <div class="pure-control-group">
+          <label for="ref_url">Notes</label>
+          <textarea class="pure-input-1-2" placeholder="add your note text here" name='note[description]'></textarea>
+        </div>
+     </fieldset>
+    <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    <legend></legend>
+  </form>
