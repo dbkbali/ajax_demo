@@ -14,26 +14,31 @@ $(document).ready(function() {
         ));
       },
 
-   $.ajax({
-     url: "/notes",
-     method: "GET",
-     dataType: 'json',
-     success: function(notes) {
-       $(notes).each(function(i, note){
-         renderNote(note);
-         $('span.note-count').text($('.post-description').length);
-       })
-      },
-       // Iterates through our json and renders and
-       // appends our note
-   })
+    $('#loader').css('visibility', 'visible');
+   //$.ajax({
+   //   url: "/notes",
+   //   method: "GET",
+   //   dataType: 'json',
+   //   success: function(notes) {
+   //     $(notes).each(function(i, note){
+   //       renderNote(note);
+   //       $('span.note-count').text($('.post-description').length);
+   //     })
+   //    },
+   //     // Iterates through our json and renders and
+   //     // appends our note
+   // })
 
     // Shorthand command for the above is jQuery.getJSON( url [, data ] [, success ] )
-    //$.getJSON("/notes", function(notes){
-    //  $(notes).each(function(i, note){
-    //      renderNote(note);
-    //  });
-    //  $('span.note-count').text($('.post-description').length);
+    $.getJSON("/notes")
+      .done(function(notes){
+        $(notes).each(function(i, note){
+          renderNote(note);
+        });
+        $('span.note-count').text($('.post-description').length);
+        $('#loader').css('visibility', 'hidden');
+      }).fail(function(){alert('problem - come back later')});
+
     //})
 
     // Can also submit our form using post but we need to disable form default action
@@ -51,7 +56,6 @@ $(document).ready(function() {
           reference_url: $('#ref_url').val()
         }
       };
-
       $.ajax({
         url: post_url,
         method: 'POST',
