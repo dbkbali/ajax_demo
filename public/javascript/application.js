@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 
   renderNote = function(note) {
@@ -16,7 +14,6 @@ $(document).ready(function() {
         ));
       },
 
-
    $.ajax({
      url: "/notes",
      method: "GET",
@@ -32,10 +29,6 @@ $(document).ready(function() {
    })
 
     // Shorthand command for the above is jQuery.getJSON( url [, data ] [, success ] )
-    //
-    //
-
-
     //$.getJSON("/notes", function(notes){
     //  $(notes).each(function(i, note){
     //      renderNote(note);
@@ -47,11 +40,7 @@ $(document).ready(function() {
     // and disable usual form action
     //
 
-
-
     post_url = "/notes"
-
-
     $(document).on('click','button#form-button', function(event){
       event.preventDefault();
       $('#messages > div.pure-alert').remove();
