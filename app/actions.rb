@@ -30,8 +30,7 @@ end
 post '/notes' do
   @note = Note.new(params["note"])
   if @note.save
-    @count += 1
-    json(@note.as_json.merge!({count: @count}))
+    @note.to_json
   else
     message = "Note not created as title and/or description fields were blank!"
     halt 400, message

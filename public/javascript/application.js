@@ -54,6 +54,7 @@ $(document).ready(function() {
 
     $(document).on('click','button#form-button', function(event){
       event.preventDefault();
+      $('#messages > div.pure-alert').remove();
       data = {
         note: {
           title: $('#title').val(),
@@ -68,14 +69,14 @@ $(document).ready(function() {
         dataType: 'json',
         data: data,
         error: function(data) {
-            $('#messages').append($('<div>'))
+            $('#messages').append(($('<div>')
               .addClass('pure-alert pure-alert-error')
-              .text(data.responseText)
+              .text(data.responseText)));
           },
         success: function(data) {
-            $('#messages').append($('<div>'))
+            $('#messages').append($('<div/>')
               .addClass('pure-alert pure-alert-success')
-              .text("Your note was created").fadeOut(600);
+              .text("Your note was created").fadeOut(1500));
             renderNote(data);
             $('span.note-count').text($('.post-description').length)
             $("input[type=text],input[type=url],textarea").val("");
