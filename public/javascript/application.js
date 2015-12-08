@@ -21,8 +21,8 @@ $(document).ready(function() {
      success: function(notes) {
        $(notes).each(function(i, note){
          renderNote(note);
-         $('span.note-count').text($('.post-description').length);
-       })
+       });
+       $('span.note-count').text($('.post-description').length);
       },
        // Iterates through our json and renders and
        // appends our note
